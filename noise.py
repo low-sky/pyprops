@@ -20,16 +20,16 @@ class Noise:
     # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     # Contents
     # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    
+
+    noise_scalar = None
+    noise_map = None
+    spectral_norm = None
+
     data = None
+    spec_axis = None
+
     signal = None
     backup = None
-    spec_axis = None
-    
-    # Noise
-    scale = None
-    spec = None    
-    map = None
     
     # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     # Initialize and infrastructure
@@ -40,30 +40,11 @@ class Noise:
         data
         ):
         """
-        Construct a new mask object.
+        Construct a new Noise object.
         """
         self.data = data        
         self.spec_axis = data.spec_axis
 
-    def set_data(
-        self,
-        val=None
-        ):
-        """
-        Link the noise object to a data object.
-        """
-        if val != None:
-            self.data = val
-
-    def set_signal_mask(
-        self,
-        val=None
-        ):
-        """
-        Link the noise object to a mask object.
-        """
-        if val != None:
-            self.signal = val
 
     def set_spectral_axis(
         self,
@@ -72,7 +53,7 @@ class Noise:
         """
         Set the spectral axis.
         """
-        if val != None:
+        if val is not None:
             self.spec_axis = val
 
     # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
